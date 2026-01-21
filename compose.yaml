@@ -1,6 +1,7 @@
 services:
   nn-monitor:
     container_name: nn-monitor
+    hostname: neuralnet
     build:
       context: .
       dockerfile: Dockerfile

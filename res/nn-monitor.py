@@ -66,7 +66,7 @@ if __name__ == "__main__":
     lcd_comm.SetOrientation(orientation=Orientation.REVERSE_LANDSCAPE)
 
     # Define background picture
-    background = f"res/background.png"
+    background = f"background.png"
 
     # Display background
     lcd_comm.DisplayBitmap(background)
@@ -76,7 +76,7 @@ if __name__ == "__main__":
 
     # Display PC name
     lcd_comm.DisplayText(pc_name, 140, 0, 200, 20,
-                         font="res/font.ttf",
+                         font="font.ttf",
                          font_size=18,
                          font_color=(100, 207, 213),
                          anchor="ma",
@@ -92,7 +92,7 @@ if __name__ == "__main__":
     if temperature_supported:
         temps = psutil.sensors_temperatures()
         for name, entries in temps.items():
-            if "cpu" in name.lower() or "coretemp" in name.lower():
+            if "cpu" in name.lower() or "coretemp" in name.lower() or "k10temp" in name.lower():
                 temperature_cpu_name = name
                 break
 
@@ -121,7 +121,7 @@ if __name__ == "__main__":
 
         # Display date
         lcd_comm.DisplayText(current_date, 4, 0, 80, 20,
-                            font="res/font.ttf",
+                            font="font.ttf",
                             font_size=18,
                             font_color=(249, 100, 0),
                             anchor="la",
@@ -129,7 +129,7 @@ if __name__ == "__main__":
 
         # Display time
         lcd_comm.DisplayText(current_time, 416, 0, 66, 20,
-                            font="res/font.ttf",
+                            font="font.ttf",
                             font_size=18,
                             font_color=(249, 100, 0),
                             anchor="la",
@@ -140,7 +140,7 @@ if __name__ == "__main__":
 
         # Display CPU load
         lcd_comm.DisplayText(f"{cpu_load:.0f}%", 47, 46, 30, 16,
-                            font="res/font.ttf",
+                            font="font.ttf",
                             font_size=12,
                             font_color=(249, 100, 0),
                             anchor="ma",
@@ -162,7 +162,7 @@ if __name__ == "__main__":
 
         # Display CPU temperature
         lcd_comm.DisplayText(f"{cpu_temp:.1f}°C", 47, 76, 30, 16,
-                            font="res/font.ttf",
+                            font="font.ttf",
                             font_size=12,
                             font_color=(249, 100, 0),
                             anchor="ma",
@@ -184,7 +184,7 @@ if __name__ == "__main__":
 
         # Display RAM used percentage
         lcd_comm.DisplayText(f"{percent_used_ram:.0f}%", 167, 46, 30, 16,
-                            font="res/font.ttf",
+                            font="font.ttf",
                             font_size=12,
                             font_color=(249, 100, 0),
                             anchor="ma",
@@ -199,7 +199,7 @@ if __name__ == "__main__":
 
         # Display used RAM
         lcd_comm.DisplayText(f"{used_ram_gb:.1f} GB", 164, 76, 40, 16,
-                            font="res/font.ttf",
+                            font="font.ttf",
                             font_size=12,
                             font_color=(249, 100, 0),
                             anchor="la",
@@ -207,7 +207,7 @@ if __name__ == "__main__":
 
         # Display free RAM
         lcd_comm.DisplayText(f"{free_ram_gb:.1f} GB", 164, 90, 40, 16,
-                            font="res/font.ttf",
+                            font="font.ttf",
                             font_size=12,
                             font_color=(249, 100, 0),
                             anchor="la",
@@ -222,7 +222,7 @@ if __name__ == "__main__":
 
         # Display swap used percentage
         lcd_comm.DisplayText(f"{percent_used_swap:.0f}%", 287, 46, 30, 16,
-                            font="res/font.ttf",
+                            font="font.ttf",
                             font_size=12,
                             font_color=(249, 100, 0),
                             anchor="ma",
@@ -237,7 +237,7 @@ if __name__ == "__main__":
 
         # Display used swap
         lcd_comm.DisplayText(f"{used_swap_gb:.1f} GB", 284, 76, 40, 16,
-                            font="res/font.ttf",
+                            font="font.ttf",
                             font_size=12,
                             font_color=(249, 100, 0),
                             anchor="la",
@@ -245,7 +245,7 @@ if __name__ == "__main__":
 
         # Display free swap
         lcd_comm.DisplayText(f"{free_swap_gb:.1f} GB", 284, 90, 40, 16,
-                            font="res/font.ttf",
+                            font="font.ttf",
                             font_size=12,
                             font_color=(249, 100, 0),
                             anchor="la",
@@ -260,7 +260,7 @@ if __name__ == "__main__":
 
         # Display disk used space percentage
         lcd_comm.DisplayText(f"{percent_used_disk:.0f}%", 407, 46, 30, 16,
-                            font="res/font.ttf",
+                            font="font.ttf",
                             font_size=12,
                             font_color=(249, 100, 0),
                             anchor="ma",
@@ -275,7 +275,7 @@ if __name__ == "__main__":
 
         # Display used space on disk
         lcd_comm.DisplayText(f"{used_disk_gb:.1f} GB", 404, 76, 40, 16,
-                            font="res/font.ttf",
+                            font="font.ttf",
                             font_size=12,
                             font_color=(249, 100, 0),
                             anchor="la",
@@ -283,7 +283,7 @@ if __name__ == "__main__":
 
         # Display free space on disk
         lcd_comm.DisplayText(f"{free_disk_gb:.1f} GB", 404, 90, 40, 16,
-                            font="res/font.ttf",
+                            font="font.ttf",
                             font_size=12,
                             font_color=(249, 100, 0),
                             anchor="la",
@@ -311,7 +311,7 @@ if __name__ == "__main__":
             
             # Display VRAM usage
             lcd_comm.DisplayText(f"{gpu_vram_percent:.0f}%", (47+gpu_num*120), 141, 30, 16,
-                                font="res/font.ttf",
+                                font="font.ttf",
                                 font_size=12,
                                 font_color=(249, 100, 0),
                                 anchor="ma",
@@ -337,7 +337,7 @@ if __name__ == "__main__":
 
             # Display GPU usage
             lcd_comm.DisplayText(f"{gpu_load_percent:.0f}%", (47+gpu_num*120), 246, 30, 16,
-                                font="res/font.ttf",
+                                font="font.ttf",
                                 font_size=12,
                                 font_color=(249, 100, 0),
                                 anchor="ma",
@@ -352,7 +352,7 @@ if __name__ == "__main__":
 
             # Display GPU temp
             lcd_comm.DisplayText(f"{gpu_temp:.0f}°C", (47+gpu_num*120), 276, 30, 16,
-                                font="res/font.ttf",
+                                font="font.ttf",
                                 font_size=12,
                                 font_color=(249, 100, 0),
                                 anchor="ma",
