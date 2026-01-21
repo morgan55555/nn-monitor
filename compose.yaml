@@ -7,7 +7,6 @@ services:
       dockerfile: Dockerfile
     devices:
       - /dev/ttyACM0:/dev/ttyACM0
-    privileged: true
     runtime: nvidia
     environment:
       - NVIDIA_VISIBLE_DEVICES=all
