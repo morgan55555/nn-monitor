@@ -1,0 +1,13 @@
+services:
+  nn-monitor:
+    container_name: nn-monitor
+    build:
+      context: .
+      dockerfile: Dockerfile
+    devices:
+      - /dev/ttyACM0:/dev/ttyACM0
+    privileged: true
+    runtime: nvidia
+    environment:
+      - NVIDIA_VISIBLE_DEVICES=all
+    restart: always
