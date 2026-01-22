@@ -300,9 +300,10 @@ if __name__ == "__main__":
             if gpu_num < nvidia_gpu_count:
                 handle = pynvml.nvmlDeviceGetHandleByIndex(gpu_num)
                 utilization = pynvml.nvmlDeviceGetUtilizationRates(handle)
+                memory = pynvml.nvmlDeviceGetMemoryInfo(handle)
                 temp = pynvml.nvmlDeviceGetTemperature(handle, pynvml.NVML_TEMPERATURE_GPU)
 
-                gpu_vram_percent = utilization.memory
+                gpu_vram_percent = memory.used / memory.total * 100
                 gpu_load_percent = utilization.gpu
                 gpu_temp = temp
 
