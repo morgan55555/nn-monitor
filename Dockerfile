@@ -12,8 +12,8 @@ RUN --mount=target=/var/lib/apt/lists,type=cache,sharing=locked \
 # Set the working directory
 WORKDIR /nn-monitor
 
-# Copy application files and set ownership
-COPY ./res .
+# Copy only requirements first
+COPY ./res/requirements.txt requirements.txt
 
 # Install python dependencies
 RUN --mount=type=cache,target=/root/.cache/pip \
@@ -23,6 +23,9 @@ RUN --mount=type=cache,target=/root/.cache/pip \
 
 # Clone repo
 RUN git clone https://github.com/mathoudebine/turing-smart-screen-python.git
+
+# Copy application files
+COPY ./res .
 
 # Run with python
 ENTRYPOINT ["python3", "nn-monitor.py"]
